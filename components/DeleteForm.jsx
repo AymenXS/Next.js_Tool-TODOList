@@ -1,8 +1,13 @@
-const DeleteForm = () => {
+import { deleteTask } from '@/utils/actions';
+
+const DeleteForm = ({ id }) => {
   return (
-    <div>
-      <button className="btn btn-error btn-xs">delete</button>
-    </div>
+    <form action={deleteTask}>
+      <input type="hidden" name="id" value={id} />
+      <button type="submit" className="btn btn-xs btn-error">
+        delete
+      </button>
+    </form>
   );
 };
 export default DeleteForm;
