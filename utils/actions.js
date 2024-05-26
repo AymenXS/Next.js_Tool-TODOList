@@ -26,7 +26,11 @@ export const createTask = async (formData) => {
 
 export const createTaskCustom = async (prevState, formData) => {
   const content = formData.get('content');
+  const Task = z.object({
+    content: z.string().min(5),
+  });
   try {
+    Task.parse({ content });
     await prisma.task.create({
       data: {
         content,
@@ -36,7 +40,7 @@ export const createTaskCustom = async (prevState, formData) => {
     revalidatePath('/tasks');
     return { message: 'success !!!' };
   } catch (error) {
-    return { message: 'error...' };
+    return { message: 'error' };
   }
 };
 
