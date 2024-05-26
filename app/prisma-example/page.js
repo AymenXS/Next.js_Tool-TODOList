@@ -1,4 +1,5 @@
 import prisma from '@/utils/db';
+export const dynamic = 'force-dynamic'; // Uncomment this in case of Bugs.
 
 const prismaHandlers = async () => {
   console.log('prisma example');
