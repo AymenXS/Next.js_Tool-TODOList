@@ -7,7 +7,6 @@ const SubmitButton = () => {
   return (
     <button className="btn btn-xs btn-error" disabled={pending}>
       {pending ? 'pending...' : 'delete'}
-      delete
     </button>
   );
 };
